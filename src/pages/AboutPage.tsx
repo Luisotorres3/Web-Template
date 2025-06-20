@@ -1,20 +1,27 @@
+/**
+ * @file AboutPage.tsx
+ * @description Defines the "About Us" page for the application.
+ * This page provides information about the project, its purpose, and the technologies used.
+ * It uses framer-motion for entry animations and react-i18next for internationalization.
+ */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // Keep for any inner specific animations if added later
+import AnimatedPage from '../../components/motion/AnimatedPage'; // Import the new component
 
+/**
+ * The About page of the application.
+ * It provides information about the team and the project's purpose and technologies used.
+ * Content is internationalized and the page uses animations.
+ * @returns {JSX.Element} The rendered AboutPage component.
+ */
 const AboutPage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <motion.div
-      className="container mx-auto px-4 py-12 text-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-    >
-      <h1 className="text-4xl font-bold mb-6 text-purple-600 dark:text-purple-400">{t('aboutTitle')}</h1>
-      <div className="max-w-3xl mx-auto text-slate-700 dark:text-slate-300 space-y-4">
+    <AnimatedPage className="container mx-auto px-space-md py-12 text-center">
+      <h1 className="text-4xl font-bold mb-space-lg text-primary">{t('aboutTitle')}</h1>
+      <div className="max-w-3xl mx-auto text-text-muted space-y-space-md">
         <p>
           We are a passionate team dedicated to crafting beautiful and functional web experiences.
           Our mission is to explore new frontiers in technology and design, pushing the boundaries of what's possible.
@@ -27,7 +34,7 @@ const AboutPage: React.FC = () => {
           Join us as we navigate the digital universe, building innovative solutions one line of code at a time.
         </p>
       </div>
-    </motion.div>
+    </AnimatedPage>
   );
 };
 

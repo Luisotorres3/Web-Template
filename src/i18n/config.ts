@@ -1,3 +1,9 @@
+/**
+ * @file i18n/config.ts
+ * @description Configuration file for i18next internationalization library.
+ * Sets up language detection, backend for loading translation files,
+ * and integration with React. Supported languages are English and Spanish.
+ */
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
