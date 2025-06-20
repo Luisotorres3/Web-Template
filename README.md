@@ -51,4 +51,28 @@ export default tseslint.config({
     ...reactDom.configs.recommended.rules,
   },
 })
+
+## Folder Structure
+
+Here's an overview of the key directories and their purposes:
+
+-   `public/`: Contains static assets that are served directly.
+    -   `public/locales/`: Stores translation files (e.g., `en.json`, `es.json`) for internationalization (i18n) provided by `i18next-http-backend`.
+-   `src/`: Main application source code.
+    -   `src/components/`: Contains reusable React components.
+        -   `src/components/layout/`: Components responsible for the overall page structure (e.g., `Navbar.tsx`, `Footer.tsx`, `MainLayout.tsx`).
+        -   `src/components/ui/`: Smaller, general-purpose UI elements (e.g., `ThemeToggle.tsx`, buttons, modals).
+    -   `src/contexts/`: Holds React Context API implementations for global state management (e.g., `ThemeContext.tsx`).
+    -   `src/i18n/`: Contains the configuration for the `i18next` internationalization library (`config.ts`).
+    -   `src/pages/`: Top-level components that represent different pages or views of the application (e.g., `HomePage.tsx`, `AboutPage.tsx`).
+    -   `src/router/`: Defines the application's routing structure using `react-router-dom` (`index.tsx`).
+    -   `src/styles/`: Global stylesheets and Tailwind CSS setup (`index.css`).
+    -   `src/App.tsx`: The root React component that sets up the router.
+    -   `src/main.tsx`: The main entry point of the application, rendering the root component.
+
+**Suggested Additions (if needed):**
+
+-   `src/assets/`: For static assets like images, SVGs, and custom fonts that are imported into components.
+-   `src/hooks/`: For custom React hooks that can be reused across multiple components.
+-   `src/utils/`: For general utility functions that are not specific to any single component.
 ```
