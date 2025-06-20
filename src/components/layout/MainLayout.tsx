@@ -9,7 +9,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { AnimatePresence } from 'framer-motion';
-import ScrollToTop from '../utils/ScrollToTop'; // Import the ScrollToTop component
+import ScrollToTop from '../utils/ScrollToTop';
+import CookieConsentPopup from '../ui/CookieConsentPopup'; // Import the CookieConsentPopup
 
 /**
  * Provides the main layout structure for the application.
@@ -39,6 +40,7 @@ const MainLayout: React.FC = () => {
       </main>
       <Footer />
       </div>
+      <CookieConsentPopup /> {/* Add CookieConsentPopup here so it can overlay */}
     </>
   );
 };

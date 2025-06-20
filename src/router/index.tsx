@@ -10,6 +10,8 @@ import MainLayout from '../components/layout/MainLayout';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ProjectsPage from '../pages/ProjectsPage';
+import CatalogPage from '../pages/CatalogPage';
+import LegalPage from '../pages/LegalPage'; // Import the new LegalPage
 
 // --- How to Add a New Page ---
 //
@@ -53,6 +55,14 @@ const routes: RouteObject[] = [
       {
         path: 'projects',
         element: <ProjectsPage />,
+      },
+      {
+        path: 'catalog',
+        element: <CatalogPage />,
+      },
+      {
+        path: 'legal', // Add the new legal route
+        element: <LegalPage />,
       },
     ],
   },
