@@ -8,8 +8,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import ThemeToggle from '../ui/ThemeToggle';
-import LanguageSelector from '../ui/LanguageSelector'; // Import the new component
-// Removed i18n import from here as it's now handled by LanguageSelector
+import LanguageSelector from '../ui/LanguageSelector';
+import Logo from '../ui/Logo'; // Import the new Logo component
 
 /**
  * Displays the main navigation bar for the application.
@@ -39,14 +39,15 @@ const Navbar: React.FC = () => {
     <nav className="bg-surface shadow-lg">
       <div className="container mx-auto px-space-md sm:px-space-lg lg:px-space-xl">
         <div className="flex items-center justify-between h-16"> {/* h-16 is 4rem, maps to space-xl*2 or keep as is if not in scale */}
-          <div className="flex items-center">
-            <span className="text-xl font-bold text-primary">CosmoNav</span>
+          <div className="flex-shrink-0"> {/* Ensure logo doesn't shrink if space is tight */}
+            <Logo svgClassName="h-10 w-auto" /> {/* Adjusted size */}
           </div>
           <div className="hidden md:flex items-center space-x-space-md">
             {/* TODO: Implement a responsive mobile menu (hamburger button) for smaller screens. This div would be part of that logic. */}
-            <NavLink to="/" className={navLinkClasses}>{t('navHome')}</NavLink>
-            <NavLink to="/about" className={navLinkClasses}>{t('navAbout')}</NavLink>
-            <NavLink to="/projects" className={navLinkClasses}>{t('navProjects')}</NavLink>
+            <NavLink to="/" className={navLinkClasses}>{t('navHome', 'Home')}</NavLink>
+            <NavLink to="/about" className={navLinkClasses}>{t('navAbout', 'About')}</NavLink>
+            <NavLink to="/projects" className={navLinkClasses}>{t('navProjects', 'Projects')}</NavLink>
+            <NavLink to="/catalog" className={navLinkClasses}>{t('navCatalog', 'Catalog')}</NavLink> {/* Added Catalog NavLink */}
             <ThemeToggle />
             <LanguageSelector /> {/* Use the new component here */}
           </div>
