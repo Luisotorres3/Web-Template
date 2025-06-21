@@ -31,28 +31,47 @@ const DefaultChevronDownIcon = () => (
 interface Language {
   code: string;
   name: string;
-  flag: string; // Emoji flag
+  flag: string; // SVG flag URL
 }
 
 const languages: Language[] = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  {
+    code: "en",
+    flag: "https://flagcdn.com/gb.svg",
+    name: "EN",
+  },
+  {
+    code: "es",
+    flag: "https://flagcdn.com/es.svg",
+    name: "ES",
+  },
+  {
+    code: "fr",
+    flag: "https://flagcdn.com/fr.svg",
+    name: "FR",
+  },
 ];
 
 const getFlagDisplay = (code: string) => {
-  switch (code) {
-    case 'en': 
-      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>🇬🇧</span>;
-    case 'es': 
-      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>
-  🇪🇸
-</span>;
-    case 'fr':
-      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>🇫🇷</span>;
-    default: 
-      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>🌐</span>;
+  const language = languages.find(lang => lang.code === code);
+  if (language) {
+    return (
+      <img
+        src={language.flag}
+        alt={`${language.name} flag`}
+        className="w-5 h-4 object-cover rounded-sm"
+        loading="lazy"
+      />
+    );
   }
+  return (
+    <img
+      src="https://flagcdn.com/xx.svg"
+      alt="Default flag"
+      className="w-5 h-4 object-cover rounded-sm"
+      loading="lazy"
+    />
+  );
 };
 
 /**
@@ -161,7 +180,12 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => selectLanguage(lang.code)}
                 onKeyDown={(e) => handleOptionKeyDown(e, lang.code)}
               >
-                <span className="mr-3 text-xl">{lang.flag || '🌐'}</span>
+                <img
+                  src={lang.flag}
+                  alt={`${lang.name} flag`}
+                  className="w-5 h-4 object-cover rounded-sm mr-3"
+                  loading="lazy"
+                />
                 {lang.name}
               </li>
             ))}
