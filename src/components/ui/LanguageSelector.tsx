@@ -37,19 +37,21 @@ interface Language {
 const languages: Language[] = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
-  // { code: 'fr', name: 'Français', flag: '🇫🇷' }, // Example for future addition
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
 ];
 
 const getFlagDisplay = (code: string) => {
   switch (code) {
     case 'en': 
-      return <span className="text-xl">🇬🇧</span>;
+      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>🇬🇧</span>;
     case 'es': 
       return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>
   🇪🇸
 </span>;
+    case 'fr':
+      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>🇫🇷</span>;
     default: 
-      return <span className="text-xl">🌐</span>;
+      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>🌐</span>;
   }
 };
 
