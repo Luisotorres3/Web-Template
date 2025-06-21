@@ -5,13 +5,12 @@
  * It utilizes framer-motion for animations and react-i18next for internationalization.
  */
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import AnimatedPage from '../../components/motion/AnimatedPage';
-import HeroSection from '../../components/landing/home/HeroSection';
-import FeaturesSection from '../../components/landing/home/FeaturesSection';
-import TestimonialsSection from '../../components/landing/home/TestimonialsSection';
-import SecondaryCTASection from '../../components/landing/home/SecondaryCTASection';
-import CarouselSection from '../../components/landing/home/CarouselSection'; // Import CarouselSection
+import AnimatedPage from '../components/motion/AnimatedPage';
+import HeroSection from '../components/landing/home/HeroSection';
+import FeaturesSection from '../components/landing/home/FeaturesSection';
+import TestimonialsSection from '../components/landing/home/TestimonialsSection';
+import SecondaryCTASection from '../components/landing/home/SecondaryCTASection';
+import CarouselSection from '../components/landing/home/CarouselSection'; // Import CarouselSection
 
 /**
  * The main landing page of the application, composed of several content sections.
@@ -19,8 +18,6 @@ import CarouselSection from '../../components/landing/home/CarouselSection'; // 
  * @returns {JSX.Element} The rendered HomePage component.
  */
 const HomePage: React.FC = () => {
-  const { t } = useTranslation(); // Retain for any top-level page text if needed, or pass to sections
-
   return (
     <AnimatedPage className="flex flex-col items-center w-full">
       <HeroSection />

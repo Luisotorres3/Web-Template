@@ -5,7 +5,6 @@
  */
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
 /**
  * Props for the CatalogItem component.
@@ -61,12 +60,10 @@ const CatalogItem: React.FC<CatalogItemProps> = ({
   onAction,
   tags,
 }) => {
-  const { t } = useTranslation();
-
   return (
     <motion.div
       className="bg-surface rounded-radius-lg shadow-lg overflow-hidden flex flex-col h-full"
-      whileHover={{ y: -5, shadow: 'xl' }}
+      whileHover={{ y: -5, scale: 1.05 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
       {imageUrl ? (

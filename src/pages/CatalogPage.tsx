@@ -5,8 +5,8 @@
  */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import AnimatedPage from '../../components/motion/AnimatedPage';
-import CatalogItem, { CatalogItemProps } from '../../components/catalog/CatalogItem';
+import AnimatedPage from '../components/motion/AnimatedPage';
+import CatalogItem, { type CatalogItemProps } from '../components/catalog/CatalogItem';
 
 // Placeholder data for catalog items
 const catalogItemsData: CatalogItemProps[] = [

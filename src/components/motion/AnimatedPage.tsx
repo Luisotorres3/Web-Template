@@ -3,8 +3,8 @@
  * @description Defines a reusable component that wraps page content with standard animations.
  * This component uses Framer Motion to apply consistent entry and exit animations to pages.
  */
-import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 /**
  * Props for the AnimatedPage component.

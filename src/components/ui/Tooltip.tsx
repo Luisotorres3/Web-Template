@@ -3,7 +3,8 @@
  * @description Defines a reusable Tooltip component with animation and customizable positioning.
  * It appears when the user hovers over or focuses on its child element.
  */
-import React, { useState, ReactElement, cloneElement, useId } from 'react';
+import React, { useState, useId } from 'react';
+import type { ReactElement } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
@@ -33,20 +34,8 @@ const Tooltip: React.FC<TooltipProps> = ({
   position = 'top',
   className = '',
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible] = useState(false);
   const tooltipId = useId(); // Generate a unique ID for aria-describedby
-
-  const showTooltip = () => setIsVisible(true);
-  const hideTooltip = () => setIsVisible(false);
-
-  // Clone the child element to attach event handlers
-  const triggerElement = cloneElement(children, {
-    onMouseEnter: showTooltip,
-    onMouseLeave: hideTooltip,
-    onFocus: showTooltip,
-    onBlur: hideTooltip,
-    'aria-describedby': isVisible ? tooltipId : undefined,
-  });
 
   // Base classes for the tooltip popup
   const tooltipBaseClasses =
@@ -78,7 +67,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <div className={`relative inline-block ${className}`}>
-      {triggerElement}
+      {children}
       <AnimatePresence>
         {isVisible && (
           <motion.div

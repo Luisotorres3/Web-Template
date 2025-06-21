@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeftIcon, ChevronRightIcon } from '../icons/ChevronIcons'; // Placeholder, create if needed
+// import { ChevronLeftIcon, ChevronRightIcon } from '../icons/ChevronIcons'; // Placeholder, create if needed
 
 // Fallback Chevron Icons if not provided
 const DefaultChevronLeft = () => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>;
@@ -54,9 +54,6 @@ const CarouselSection: React.FC = () => {
     setPage([page + newDirection, newDirection]);
   };
 
-  const ChevronLeft = ChevronLeftIcon || DefaultChevronLeft;
-  const ChevronRight = ChevronRightIcon || DefaultChevronRight;
-
   return (
     <section className="w-full bg-surface dark:bg-neutral-background py-16 md:py-24">
       <div className="container mx-auto px-space-md text-center">
@@ -102,14 +99,14 @@ const CarouselSection: React.FC = () => {
             onClick={() => paginate(-1)}
             aria-label={t('previousSlide', 'Previous Slide')}
           >
-            <ChevronLeft />
+            <DefaultChevronLeft />
           </button>
           <button
             className="absolute top-1/2 right-2 -translate-y-1/2 z-10 p-2 bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors"
             onClick={() => paginate(1)}
             aria-label={t('nextSlide', 'Next Slide')}
           >
-            <ChevronRight />
+            <DefaultChevronRight />
           </button>
         </div>
         <div className="flex justify-center mt-space-md">

@@ -24,7 +24,7 @@ i18n
       caches: ['localStorage'], // Cache found language in localStorage
     },
     backend: {
-      loadPath: '/locales/{{lng}}.json', // Path to translation files
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}.json`, // Path to translation files
     },
   });
 

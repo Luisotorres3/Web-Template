@@ -6,8 +6,7 @@
  */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion'; // Keep for any inner specific animations if added later
-import AnimatedPage from '../../components/motion/AnimatedPage'; // Import the new component
+import AnimatedPage from '../components/motion/AnimatedPage'; // Import the new component
 
 /**
  * The About page of the application.

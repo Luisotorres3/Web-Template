@@ -4,7 +4,8 @@
  * It displays the current language with its flag and allows users to switch between supported languages.
  * This component is typically used in the Navbar.
  */
-import React, { useState, useEffect, useRef, KeyboardEvent } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import type { KeyboardEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n/config';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -39,6 +40,19 @@ const languages: Language[] = [
   // { code: 'fr', name: 'Français', flag: '🇫🇷' }, // Example for future addition
 ];
 
+const getFlagDisplay = (code: string) => {
+  switch (code) {
+    case 'en': 
+      return <span className="text-xl">🇬🇧</span>;
+    case 'es': 
+      return <span className="text-xl" style={{ fontFamily: `'Segoe UI Emoji', 'Apple Color Emoji', sans-serif` }}>
+  🇪🇸
+</span>;
+    default: 
+      return <span className="text-xl">🌐</span>;
+  }
+};
+
 /**
  * LanguageSelector component allows users to switch the application's language via a dropdown menu.
  * It displays the currently selected language (flag and name) and provides options to choose other supported languages.
@@ -51,7 +65,7 @@ const LanguageSelector: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
 
-  const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
+  const currentLanguage = languages.find((lang) => lang.code === i18n.language) || { code: i18n.language, name: i18n.language.toUpperCase(), flag: '🌐' };
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -108,15 +122,13 @@ const LanguageSelector: React.FC = () => {
       <button
         ref={triggerButtonRef}
         type="button"
-        className="flex items-center justify-between px-3 py-2 bg-surface text-text-default hover:bg-neutral-border dark:hover:bg-neutral-border-dark rounded-radius-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface transition-colors"
+        className="flex items-center justify-center px-3 py-2 bg-surface text-text-default hover:bg-neutral-border dark:hover:bg-neutral-border-dark rounded-radius-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface transition-colors"
         onClick={toggleDropdown}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-label={t('selectLanguage', 'Select language') + `: ${currentLanguage.name}`}
       >
-        <span className="mr-2">{currentLanguage.flag}</span>
-        <span className="text-sm hidden md:inline">{currentLanguage.name}</span>
-        <span className="text-sm md:hidden">{currentLanguage.code.toUpperCase()}</span>
+        {getFlagDisplay(currentLanguage.code)}
         {typeof ChevronDownIcon !== 'undefined' ? <ChevronDownIcon /> : <DefaultChevronDownIcon />}
       </button>
 
@@ -147,7 +159,7 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => selectLanguage(lang.code)}
                 onKeyDown={(e) => handleOptionKeyDown(e, lang.code)}
               >
-                <span className="mr-3">{lang.flag}</span>
+                <span className="mr-3 text-xl">{lang.flag || '🌐'}</span>
                 {lang.name}
               </li>
             ))}

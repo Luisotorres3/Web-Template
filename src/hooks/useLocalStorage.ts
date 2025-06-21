@@ -4,7 +4,7 @@
  * This hook allows components to easily store and retrieve data from localStorage
  * while synchronizing it with React component state.
  */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /**
  * A custom React hook that syncs state with localStorage.
@@ -29,7 +29,13 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T | ((val
     }
     try {
       const item = window.localStorage.getItem(key);
-      return item ? (JSON.parse(item) as T) : initialValue;
+      if (!item) return initialValue;
+      try {
+        return JSON.parse(item) as T;
+      } catch {
+        // Si no es JSON válido, devuelve el string plano si es del tipo esperado
+        return item as unknown as T;
+      }
     } catch (error) {
       console.error(`Error reading localStorage key "${key}":`, error);
       return initialValue;

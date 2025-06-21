@@ -4,8 +4,8 @@
  * It uses `react-router-dom` to create a browser router with nested routes
  * under a common MainLayout. This file exports the configured router instance.
  */
-import React from 'react';
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
@@ -68,6 +68,6 @@ const routes: RouteObject[] = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, { basename: '/web-template' });
 
 export default router;

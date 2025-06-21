@@ -5,7 +5,8 @@
  */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import AnimatedPage from '../../components/motion/AnimatedPage';
+import AnimatedPage from '../components/motion/AnimatedPage';
+import i18n from '../i18n/config';
 
 /**
  * LegalPage component displays legal documents like Terms of Use and Privacy Policy.

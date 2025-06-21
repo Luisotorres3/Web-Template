@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 const CosmoLogoSvg: React.FC<{ className?: string }> = ({ className }) => (
   <svg
     className={className}
-    viewBox="0 0 120 60" // Adjusted viewBox for a wider logo aspect ratio
+    viewBox="0 0 160 60" // Aumentado significativamente el ancho
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true" // Decorative, as the NavLink provides the label
   >
@@ -42,10 +42,10 @@ const CosmoLogoSvg: React.FC<{ className?: string }> = ({ className }) => (
 
     {/* Company Name Text - "Cosmo" */}
     <text
-      x="70"
+      x="75"
       y="35"
       fontFamily="Arial, sans-serif"
-      fontSize="20"
+      fontSize="18"
       fontWeight="bold"
       className="fill-text-default dark:fill-text-default-dark group-hover:fill-primary dark:group-hover:fill-primary-dark transition-colors"
     >

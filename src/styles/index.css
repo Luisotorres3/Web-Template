@@ -3,16 +3,13 @@
 @tailwind utilities;
 
 body {
-  font-family: theme('fontFamily.sans');
+  font-family: theme("fontFamily.sans");
 }
 
 @layer utilities {
   /* Text Utilities */
   .text-default {
     @apply text-text-default dark:text-text-default-dark;
-  }
-  .text-primary {
-    @apply text-primary dark:text-primary-dark;
   }
   .text-secondary {
     @apply text-secondary dark:text-secondary-dark;
@@ -39,9 +36,6 @@ body {
   }
   .bg-surface {
     @apply bg-neutral-surface dark:bg-neutral-surface-dark;
-  }
-  .bg-primary {
-    @apply bg-primary dark:bg-primary-dark;
   }
   .bg-secondary {
     @apply bg-secondary dark:bg-secondary-dark;

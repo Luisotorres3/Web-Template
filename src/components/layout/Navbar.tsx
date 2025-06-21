@@ -39,8 +39,8 @@ const Navbar: React.FC = () => {
     <nav className="bg-surface shadow-lg">
       <div className="container mx-auto px-space-md sm:px-space-lg lg:px-space-xl">
         <div className="flex items-center justify-between h-16"> {/* h-16 is 4rem, maps to space-xl*2 or keep as is if not in scale */}
-          <div className="flex-shrink-0"> {/* Ensure logo doesn't shrink if space is tight */}
-            <Logo svgClassName="h-10 w-auto" /> {/* Adjusted size */}
+          <div className="flex items-center flex-shrink-0 mr-10"> {/* Más margen derecho */}
+            <Logo svgClassName="h-12 w-auto" /> {/* Tamaño más grande */}
           </div>
           <div className="hidden md:flex items-center space-x-space-md">
             {/* TODO: Implement a responsive mobile menu (hamburger button) for smaller screens. This div would be part of that logic. */}

@@ -7,7 +7,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion'; // Keep for inner card animations
-import AnimatedPage from '../../components/motion/AnimatedPage'; // Import the new component
+import AnimatedPage from '../components/motion/AnimatedPage'; // Import the new component
 
 /**
  * @typedef {object} Project
